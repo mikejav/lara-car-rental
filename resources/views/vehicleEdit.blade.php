@@ -27,7 +27,7 @@
     <x-validation-errors :errors="$errors" />
 
     <x-auto-form
-        :action="route('vehicle.update', $vehicle['id'])"
+        :action="route('vehicle.update', $vehicle->id)"
         :fieldDefs="$formFieldDefs"
         :values="$vehicle"
         method="PUT"

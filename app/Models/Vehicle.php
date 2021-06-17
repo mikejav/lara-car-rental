@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Rental;
 
 class Vehicle extends Model
 {
@@ -19,6 +20,7 @@ class Vehicle extends Model
         'manufacturer',
         'model',
         'segment',
+        'description',
         'production_date',
         'first_registration_date',
         'color',

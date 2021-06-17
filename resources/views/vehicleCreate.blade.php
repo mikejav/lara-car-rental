@@ -24,17 +24,7 @@
 
     <hr class="w-100 mb-4 mt-0" />
 
-    @if ($errors->any())
-        {{-- // TODO move this logic to another component  --}}
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <x-validation-errors :errors="$errors" />
 
     <x-auto-form
         :action="route('vehicle.store')"
