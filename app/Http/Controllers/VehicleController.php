@@ -9,7 +9,6 @@ use App\Models\DataConstants\FuelType;
 use App\Models\Vehicle;
 use View;
 
-
 class VehicleController extends Controller
 {
     public function __construct()
@@ -27,7 +26,7 @@ class VehicleController extends Controller
         $columnDefs = [
             [
                 'columnKey' => 'manufacturer',
-                'columnDisplayName' => 'Producent',
+                'columnDisplayName' => 'Manufacturer',
             ],
             [
                 'columnKey' => 'model',
@@ -38,33 +37,29 @@ class VehicleController extends Controller
                 'columnDisplayName' => 'Segment',
             ],
             [
-                'columnKey' => 'describtion',
-                'columnDisplayName' => 'Opis',
-            ],
-            [
                 'columnKey' => 'production_date',
-                'columnDisplayName' => 'Data produkcji',
+                'columnDisplayName' => 'Production Date',
             ],
             [
                 'columnKey' => 'first_registration_date',
-                'columnDisplayName' => 'Data pierwszej rejestracji',
+                'columnDisplayName' => 'First Registration Date',
             ],
             [
                 'columnKey' => 'color',
-                'columnDisplayName' => 'Kolor',
+                'columnDisplayName' => 'Color',
                 'valueFormatter' => function($value) { return Color::getSelectOptions()[$value]; },
             ],
             [
                 'columnKey' => 'doors_count',
-                'columnDisplayName' => 'Ilość drzwi',
+                'columnDisplayName' => 'Doors Count',
             ],
             [
                 'columnKey' => 'engine_displacement',
-                'columnDisplayName' => 'Pojemność skokowa',
+                'columnDisplayName' => 'Engine Displacement',
             ],
             [
                 'columnKey' => 'fuel_type',
-                'columnDisplayName' => 'Rodzaj paliwa',
+                'columnDisplayName' => 'Fuel Type',
                 'valueFormatter' => function($value) { return FuelType::getSelectOptions()[$value]; },
             ],
         ];
@@ -308,6 +303,6 @@ class VehicleController extends Controller
 
         return redirect()
             ->route('vehicle.index')
-            ->with('success', 'Vehicle deleted successfully');
+            ->with('success', 'Vehicle deleted successfully.');
     }
 }
