@@ -14,10 +14,5 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        View::share('isUserLoggedIn', true);
-        View::share('loggedUser', [
-            'firstName' => 'John',
-            'lastName' => 'Doe',
-        ]);
     }
 }

@@ -28,7 +28,6 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Auth::login($credentials, $remember = true);
             return redirect()->route('vehicle.index');
         }
 
