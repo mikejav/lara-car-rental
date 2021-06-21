@@ -37,10 +37,10 @@
                         {{ $vehicle['manufacturer'].' '.$vehicle['model'] }}
                     </div>
                     <div class="col-3">
-                        Data produkcji: {{ $vehicle['production_date'] }}
+                        Production Date: {{ $vehicle['production_date'] }}
                     </div>
                     <div class="col-3">
-                        Typ paliwa: {{ $fuelType[$vehicle['fuel_type']] }}
+                        Fuel Type: {{ $fuelType[$vehicle['fuel_type']] }}
                     </div>
                 </div>
             </a>

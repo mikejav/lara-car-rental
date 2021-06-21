@@ -32,27 +32,25 @@ class RentalController extends Controller
             [
                 'columnKey' => 'customer_id',
                 'columnDisplayName' => 'Customer',
-                'valueFormatter' => function($value, $row) { return $row->customer->first_name." ".$row->customer?->last_name; },
+                'valueFormatter' => function($value, $row) {
+                    return '<a href="'.route('customer.edit', $row->customer->id).'">'
+                        .htmlentities("{$row->customer->first_name} {$row->customer?->last_name}")
+                        ."</a>";
+                }
             ],
             [
                 'columnKey' => 'vehicle_id',
                 'columnDisplayName' => 'Vehicle',
-                'valueFormatter' => function($value, $row) { return $row->vehicle->manufacturer." ".$row->vehicle->model; },
+                'valueFormatter' => function($value, $row) {
+                    return '<a href="'.route('vehicle.edit', $row->vehicle->id).'">'
+                        .htmlentities("{$row->vehicle->manufacturer} {$row->vehicle->model} ({$row->vehicle->production_date})")
+                        ."</a>";
+                },
             ],
         ];
         $gridRows = Rental::with(['vehicle'])->get();
 
         return view('rentalList', compact('columnDefs', 'gridRows'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -138,17 +136,6 @@ class RentalController extends Controller
         return redirect()
             ->route('rental.index')
             ->with('success', 'Rental created successfully.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

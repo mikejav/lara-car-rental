@@ -22,9 +22,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('vehicle', VehicleController::class);
-    Route::resource('customer', CustomerController::class);
-    Route::resource('rental', RentalController::class);
+    Route::resource('vehicle', VehicleController::class, ['except' => ['show']]);
+    Route::resource('customer', CustomerController::class, ['except' => ['show']]);
+    Route::resource('rental', RentalController::class, ['except' => ['show', 'create']]);
     Route::get('rental/create/select-customer', [RentalController::class, 'selectCustomerStep'])->name('rental.create.selectCustomerStep');
     Route::get('rental/create/select-vehicle-segment', [RentalController::class, 'selectVehicleSegmentStep'])->name('rental.create.selectVehicleSegmentStep');
     Route::get('rental/create/select-vehicle', [RentalController::class, 'selectVehicleNarrowedToSegmentStep'])->name('rental.create.selectVehicleNarrowedToSegmentStep');

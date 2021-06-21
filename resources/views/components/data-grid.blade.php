@@ -20,12 +20,12 @@
 
                         <td class="align-middle p-0 m-0">
                             <div class="d-flex p-2">
-                                <a href="{{ $makeRowEditAction($row) }}" class="btn btn-sm btn-outline-warning">Edytuj</a>
+                                <a href="{{ $makeRowEditAction($row) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                                 &nbsp;
                                 <form action="{{ $makeRowDeleteAction($row) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" name="DELETE_ROW" value="DELETE_ROW">Usun</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" name="DELETE_ROW" value="DELETE_ROW">Delete</button>
                                 </form>
                             </div>
                         </td>
@@ -36,7 +36,7 @@
                                     @php
                                         $value = $row[$column['columnKey']];
                                     @endphp
-                                    {{ $column['valueFormatter']($value, $row) }}
+                                    {!! ($column['valueFormatter']($value, $row)) !!}
                                 @else
                                     {{ $row[$column['columnKey']] }}
                                 @endif

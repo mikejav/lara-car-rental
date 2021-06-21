@@ -31,7 +31,7 @@
         @csrf
 
         <div class="form-group row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Pojazd</label>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Vehicle</label>
             <div class="col-sm-10">
                 <input type="text" readonly class="form-control-plaintext" value="{{ $vehicle['manufacturer'].' '.$vehicle['model'].', '.$fuelType[$vehicle['fuel_type']].', Rok produkcji: '.$vehicle['production_date'] }}">
                 <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Klient</label>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Customer</label>
             <div class="col-sm-10">
                 <input type="text" readonly class="form-control-plaintext" value="{{ $customer['first_name'] }} {{ $customer['last_name'] }} ({{ $customer['email'] }})">
                 <input type="hidden" name="customer_id" value="{{ $customer->id }}">
