@@ -1,4 +1,6 @@
-<select class="custom-select" id="{{ $name }}" name="{{ $name }}">
+<select class="custom-select{{ $errors->has($name) ? ' is-invalid' : '' }}" id="{{ $name }}" name="{{ $name }}">
+
+    <option value=""></option>
 
     @foreach ($options as $key => $label)
 
